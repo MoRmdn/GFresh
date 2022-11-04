@@ -26,6 +26,18 @@ class DataProvider extends GetxController {
     update();
   }
 
+  List<Product> favoriteProduct() {
+    List<Product> favProduct = [];
+    for (var element in _products) {
+      isLoading(true);
+      if (element.favorite) {
+        favProduct.add(element);
+      }
+    }
+    isLoading(false);
+    return favProduct;
+  }
+
   @override
   void onInit() {
     super.onInit();

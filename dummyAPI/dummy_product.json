@@ -6,8 +6,8 @@
         "address": "15 Minutes Away",
         "places": 5,
         "category": "IceCream",
-        "oPrice": 18,
-        "dPrice": 12,
+        "oPrice": 15,
+        "dPrice": 11,
         "favorite": false
     },
     {
@@ -17,8 +17,8 @@
         "address": "15 Minutes Away",
         "places": 5,
         "category": "IceCream",
-        "oPrice": 18,
-        "dPrice": 12,
+        "oPrice": 30,
+        "dPrice": 15,
         "favorite": false
     },
     {
@@ -28,8 +28,8 @@
         "address": "15 Minutes Away",
         "places": 5,
         "category": "IceCream",
-        "oPrice": 18,
-        "dPrice": 12,
+        "oPrice": 50,
+        "dPrice": 22,
         "favorite": false
     },
     {
@@ -39,8 +39,8 @@
         "address": "15 Minutes Away",
         "places": 5,
         "category": "IceCream",
-        "oPrice": 18,
-        "dPrice": 12,
+        "oPrice": 70,
+        "dPrice": 11,
         "favorite": false
     },
     {

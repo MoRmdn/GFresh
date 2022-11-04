@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:gfresh/config/app_color.dart';
 import 'package:gfresh/helpers/helpers.dart';
 import 'package:gfresh/models/product.dart';
 
-class DealsOfTheDay extends StatefulWidget {
+import '../config/app_color.dart';
+
+class FavoriteWidget extends StatefulWidget {
   final Product product;
-  const DealsOfTheDay({
+  final VoidCallback onRefresh;
+  const FavoriteWidget({
     super.key,
     required this.product,
+    required this.onRefresh,
   });
 
   @override
-  State<DealsOfTheDay> createState() => _DealsOfTheDayState();
+  State<FavoriteWidget> createState() => _FavoriteWidgetState();
 }
 
-class _DealsOfTheDayState extends State<DealsOfTheDay> {
+class _FavoriteWidgetState extends State<FavoriteWidget> {
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
     final size = MediaQuery.of(context).size;
     final appColor = AppColor.kColorList.getRandomValue();
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         children: [
           Stack(
             children: [
               Container(
                 width: 110,
+                height: 110,
                 decoration: BoxDecoration(
                   color: appColor,
                   borderRadius: BorderRadius.circular(20),
@@ -48,6 +48,7 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
                   child: IconButton(
                     onPressed: () => setState(() {
                       product.favorite = !product.favorite;
+                      widget.onRefresh();
                     }),
                     icon: Icon(
                       product.favorite
