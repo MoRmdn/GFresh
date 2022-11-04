@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Steak",
+        "id": "1",
+        "imageURL": ""
+    },
+    {
+        "title": "Vegetables",
+        "id": "2",
+        "imageURL": ""
+    },
+    {
+        "title": "Beverages",
+        "id": "3",
+        "imageURL": ""
+    },
+    {
+        "title": "Fish",
+        "id": "4",
+        "imageURL": ""
+    },
+    {
+        "title": "juice",
+        "id": "5",
+        "imageURL": ""
+    },
+    {
+        "title": "Test1",
+        "id": "6",
+        "imageURL": ""
+    },
+    {
+        "title": "Test2",
+        "id": "7",
+        "imageURL": ""
+    },
+    {
+        "title": "Test3",
+        "id": "8",
+        "imageURL": ""
+    },
+    {
+        "title": "Test4",
+        "id": "9",
+        "imageURL": ""
+    }
+]

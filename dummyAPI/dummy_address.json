@@ -1,0 +1,14 @@
+[
+      {
+            "location": "Mustafa st, No:2 Street x12",
+            "name": "Home Address",
+            "latitude": "Test",
+            "longitude": "justTest"
+      },
+      {
+            "location": "AXIS Istanbul, B2 Blok Floor2",
+            "name": "Office Address",
+            "latitude": "Test",
+            "longitude": "Test"
+      }
+]
