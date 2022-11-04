@@ -121,7 +121,99 @@ class _GroceryScreenState extends State<GroceryScreen> {
                     ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Stack(children: [
+                  Container(
+                    width: size.width,
+                    height: size.height * 0.2,
+                    decoration: BoxDecoration(
+                        color: const Color(0xffFEC8BD),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Expanded(flex: 2, child: SizedBox()),
+                        Expanded(
+                            flex: 3,
+                            child: SizedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Text(
+                                    "Mega",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.redAccent,
+                                    ),
+                                  ),
+                                  RichText(
+                                    text: const TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: 'W H O P P',
+                                          style: TextStyle(
+                                            fontSize: 28,
+                                            color: Color(0xff21114B),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'E',
+                                          style: TextStyle(
+                                            fontSize: 28,
+                                            color: Colors.redAccent,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: ' R',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 28,
+                                            color: Color(0xff21114B),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  RichText(
+                                    text: const TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                            text: ' \$17             ',
+                                            style: TextStyle(
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.bold)),
+                                        TextSpan(
+                                          text: '\$32',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const Text(
+                                    "* Available until 24 December 2020",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                ]),
+              ),
             ],
           );
         },
