@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gfresh/config/app_color.dart';
 import 'package:gfresh/models/product.dart';
+
+import '../providers/data_provider.dart';
 
 class DealsOfTheDay extends StatefulWidget {
   final Product product;
@@ -14,6 +17,7 @@ class DealsOfTheDay extends StatefulWidget {
 }
 
 class _DealsOfTheDayState extends State<DealsOfTheDay> {
+  final controller = Get.find<DataProvider>(tag: 'main');
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
@@ -52,6 +56,23 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
                       product.favorite
                           ? Icons.favorite
                           : Icons.favorite_outline_outlined,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: IconButton(
+                    onPressed: () => controller.increaseCart(product),
+                    icon: const Icon(
+                      Icons.shopping_cart_outlined,
                       color: Colors.redAccent,
                     ),
                   ),

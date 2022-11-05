@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gfresh/Screens/cart.dart';
+import 'package:gfresh/Screens/cart_screen.dart';
 import 'package:gfresh/Screens/favorite.dart';
 import 'package:gfresh/Screens/grocery.dart';
 import 'package:gfresh/Screens/new.dart';
+import 'package:gfresh/config/app_assets.dart';
 
 import '../widgets/custom_app_bar.dart';
 
@@ -40,7 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {});
           //code to execute on button press
         },
-        child: const Icon(Icons.shopping_cart), //icon inside button
+        child: const ImageIcon(
+          AssetImage(
+            AppAssets.fabIcon,
+          ),
+        ), //icon inside button
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -52,15 +57,27 @@ class _MyHomePageState extends State<MyHomePage> {
         child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.store_mall_directory_outlined),
+              icon: ImageIcon(
+                AssetImage(
+                  AppAssets.homeIcon,
+                ),
+              ),
               label: 'Grocery',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_none),
+              icon: ImageIcon(
+                AssetImage(
+                  AppAssets.newsIcon,
+                ),
+              ),
               label: 'News',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline_outlined),
+              icon: ImageIcon(
+                AssetImage(
+                  AppAssets.heartIcon,
+                ),
+              ),
               label: 'Favorite',
             ),
             BottomNavigationBarItem(
@@ -68,6 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
               label: 'Cart',
             ),
           ],
+          // selectedFontSize: 18,
+          // unselectedFontSize: 18,
+          type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           unselectedIconTheme: const IconThemeData(color: Colors.grey),
           selectedItemColor: Colors.redAccent,

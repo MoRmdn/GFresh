@@ -6,7 +6,7 @@ import 'package:gfresh/widgets/category_widget.dart';
 import '../config/app_color.dart';
 import '../providers/data_provider.dart';
 import '../widgets/address_widget.dart';
-import '../widgets/deals_widget.dart';
+import '../widgets/deal_widget.dart';
 
 class GroceryScreen extends StatefulWidget {
   const GroceryScreen({super.key});
@@ -16,7 +16,7 @@ class GroceryScreen extends StatefulWidget {
 }
 
 class _GroceryScreenState extends State<GroceryScreen> {
-  final controller = Get.find<DataProvider>(tag: "main");
+  final controller = Get.find<DataProvider>(tag: 'main');
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -47,7 +47,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(Icons.search),
-                    hintText: "Search in Thousands of Products",
+                    hintText: 'Search in Thousands of Products',
                   ),
                 ),
               ),
@@ -77,7 +77,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Explore by Category",
+                          'Explore by Category',
                           style: Theme.of(context).textTheme.headline6,
                         ),
                         TextButton(
@@ -85,7 +85,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                             setState(() {});
                           },
                           child: Text(
-                            "See All",
+                            'See All',
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
@@ -95,16 +95,17 @@ class _GroceryScreenState extends State<GroceryScreen> {
                       ],
                     ),
                     SizedBox(
-                        width: size.width,
-                        height:
-                            size.height * 0.13 < 100 ? 120 : size.height * 0.13,
-                        child: ListView.builder(
-                          itemCount: controller.getCategories.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => CategoryWidget(
-                            category: controller.getCategories[index],
-                          ),
-                        )),
+                      width: size.width,
+                      height:
+                          size.height * 0.13 < 100 ? 120 : size.height * 0.13,
+                      child: ListView.builder(
+                        itemCount: controller.getCategories.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) => CategoryWidget(
+                          category: controller.getCategories[index],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -125,19 +126,21 @@ class _GroceryScreenState extends State<GroceryScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Stack(children: [
-                  Container(
-                    width: size.width,
-                    height: size.height * 0.2,
-                    decoration: BoxDecoration(
+                child: Stack(
+                  children: [
+                    Container(
+                      width: size.width,
+                      height: size.height * 0.2,
+                      decoration: BoxDecoration(
                         color: const Color(0xffFEC8BD),
-                        borderRadius: BorderRadius.circular(25)),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Expanded(flex: 2, child: SizedBox()),
-                        Expanded(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Expanded(flex: 2, child: SizedBox()),
+                          Expanded(
                             flex: 3,
                             child: SizedBox(
                               child: Column(
@@ -145,7 +148,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   const Text(
-                                    "Mega",
+                                    'Mega',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.redAccent,
@@ -185,10 +188,12 @@ class _GroceryScreenState extends State<GroceryScreen> {
                                     text: const TextSpan(
                                       children: <TextSpan>[
                                         TextSpan(
-                                            text: ' \$17             ',
-                                            style: TextStyle(
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.bold)),
+                                          text: ' \$17             ',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                         TextSpan(
                                           text: '\$32',
                                           style: TextStyle(
@@ -201,18 +206,20 @@ class _GroceryScreenState extends State<GroceryScreen> {
                                     ),
                                   ),
                                   const Text(
-                                    "* Available until 24 December 2020",
+                                    '* Available until 24 December 2020',
                                     style: TextStyle(
                                       color: Colors.white,
                                     ),
                                   ),
                                 ],
                               ),
-                            )),
-                      ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
               ),
             ],
           );

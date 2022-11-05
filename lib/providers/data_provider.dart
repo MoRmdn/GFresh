@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:gfresh/helpers/remote_services.dart';
-import 'package:gfresh/models/cart_item.dart';
 import 'package:gfresh/models/category.dart';
 import 'package:gfresh/models/product.dart';
 
+import '../models/cart.dart';
 import '../models/location.dart';
 
 class DataProvider extends GetxController {
@@ -13,7 +13,7 @@ class DataProvider extends GetxController {
   List<Product> _products = [];
   List<AppCategory> _categories = [];
   List<UserLocation> _userLocations = [];
-  final Map<String, CartItem> _cart = {};
+  final Map<String, Cart> _cart = {};
 
   void fetchData() async {
     try {
@@ -22,7 +22,7 @@ class DataProvider extends GetxController {
       _products = await RemoteServices.fetchProduct();
       _categories = await RemoteServices.fetchCategory();
     } finally {
-      log("Loaded");
+      log('Loaded');
       isLoading(false);
     }
     update();
@@ -41,43 +41,52 @@ class DataProvider extends GetxController {
   }
 
   void increaseCart(Product product) {
-    if (_cart.containsKey(product)) {
+    if (_cart.containsKey(product.id)) {
       _cart.update(
-          product.id,
-          (existingItem) => CartItem(
-                id: existingItem.id,
-                product: existingItem.product,
-                productPrice: existingItem.productPrice,
-                quantity: existingItem.quantity + 1,
-              ));
+        product.id,
+        (existingItem) => Cart(
+          id: existingItem.id,
+          product: existingItem.product,
+          productPrice: existingItem.productPrice,
+          quantity: existingItem.quantity + 1,
+        ),
+      );
     } else {
       _cart.putIfAbsent(
-          product.id,
-          () => CartItem(
-              id: product.id,
-              product: product,
-              productPrice: product.oPrice,
-              quantity: 1));
+        product.id,
+        () => Cart(
+          id: product.id,
+          product: product,
+          productPrice: product.oPrice,
+          quantity: 1,
+        ),
+      );
     }
+    log(_cart.toString());
+    update();
   }
 
-  void decreaseCart(CartItem cart) {
-    if (cart.quantity == 1) {
-      _cart.remove(cart.id);
+  void decreaseCart(String cartID) {
+    final cartItem = _cart[cartID];
+    if (cartItem!.quantity == 1) {
+      _cart.remove(cartID);
     } else {
       _cart.update(
-          cart.id,
-          (existingItem) => CartItem(
-                id: existingItem.id,
-                product: existingItem.product,
-                productPrice: existingItem.productPrice,
-                quantity: existingItem.quantity - 1,
-              ));
+        cartID,
+        (existingItem) => Cart(
+          id: existingItem.id,
+          product: existingItem.product,
+          productPrice: existingItem.productPrice,
+          quantity: existingItem.quantity - 1,
+        ),
+      );
     }
+    update();
   }
 
-  void removeFormCart(CartItem cart) {
+  void removeFormCart(Cart cart) {
     _cart.remove(cart.id);
+    update();
   }
 
   double cartTotal() {
@@ -97,4 +106,5 @@ class DataProvider extends GetxController {
   List<UserLocation> get getLocation => _userLocations;
   List<AppCategory> get getCategories => _categories;
   List<Product> get getProducts => _products;
+  Map<String, Cart> get getCart => _cart;
 }
