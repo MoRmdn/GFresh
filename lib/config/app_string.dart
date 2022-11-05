@@ -1,4 +1,10 @@
 class AppStrings {
+  static const addressApiForAndroid =
+      'http://10.0.2.2:5500/dummyAPI/dummy_address.json';
+  static const categoryApiForAndroid =
+      'http://10.0.2.2:5500/dummyAPI/dummy_category.json';
+  static const productApiForAndroid =
+      'http://10.0.2.2:5500/dummyAPI/dummy_product.json';
   static const addressApi = 'http://127.0.0.1:5500/dummyAPI/dummy_address.json';
   static const categoryApi =
       'http://127.0.0.1:5500/dummyAPI/dummy_category.json';

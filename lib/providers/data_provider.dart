@@ -15,12 +15,14 @@ class DataProvider extends GetxController {
   List<UserLocation> _userLocations = [];
   final Map<String, Cart> _cart = {};
 
-  void fetchData() async {
+  Future<void> fetchData() async {
     try {
       isLoading(true);
       _userLocations = await RemoteServices.fetchLocations();
       _products = await RemoteServices.fetchProduct();
       _categories = await RemoteServices.fetchCategory();
+    } catch (e) {
+      log(e.toString());
     } finally {
       log('Loaded');
       isLoading(false);

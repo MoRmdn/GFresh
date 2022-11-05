@@ -104,7 +104,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                     SizedBox(
                       width: size.width,
                       height:
-                          size.height * 0.13 < 100 ? 120 : size.height * 0.13,
+                          size.height * 0.13 < 110 ? 120 : size.height * 0.13,
                       child: ListView.builder(
                         itemCount: controller.getCategories.length,
                         scrollDirection: Axis.horizontal,
