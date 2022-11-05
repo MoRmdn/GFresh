@@ -4,8 +4,12 @@ class AppStrings {
       'http://127.0.0.1:5500/dummyAPI/dummy_category.json';
   static const productApi = 'http://127.0.0.1:5500/dummyAPI/dummy_product.json';
   static const appTitle = 'GFresh';
-  static const favoriteTitle = 'Favorite';
+  static const grocery = 'Grocery';
+  static const newsTile = 'News';
   static const cartTitle = 'Cart';
+
+  static const favoriteTitle = 'Favorite';
+
   static const searchTitle = 'Search in Thousands of Products';
   static const categoryTitle = 'Explore by Category';
   static const seeAll = 'See All';

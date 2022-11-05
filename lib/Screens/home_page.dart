@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gfresh/Screens/cart_screen.dart';
 import 'package:gfresh/Screens/favorite.dart';
 import 'package:gfresh/Screens/grocery.dart';
-import 'package:gfresh/Screens/new.dart';
+import 'package:gfresh/Screens/news.dart';
 import 'package:gfresh/config/app_assets.dart';
+import 'package:gfresh/config/app_string.dart';
 
 import '../widgets/custom_app_bar.dart';
 
@@ -38,13 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
         //Floating action button on Scaffold
         onPressed: () {
           //ToDo
-          setState(() {});
           //code to execute on button press
         },
-        child: const ImageIcon(
-          AssetImage(
-            AppAssets.fabIcon,
-          ),
+        child: Stack(
+          children: const [
+            ImageIcon(
+              AssetImage(
+                AppAssets.fabIcon,
+              ),
+            ),
+          ],
         ), //icon inside button
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -62,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   AppAssets.homeIcon,
                 ),
               ),
-              label: 'Grocery',
+              label: AppStrings.grocery,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
@@ -70,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   AppAssets.newsIcon,
                 ),
               ),
-              label: 'News',
+              label: AppStrings.newsTile,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
@@ -78,11 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   AppAssets.heartIcon,
                 ),
               ),
-              label: 'Favorite',
+              label: AppStrings.favoriteTitle,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.wallet),
-              label: 'Cart',
+              label: AppStrings.cartTitle,
             ),
           ],
           // selectedFontSize: 18,

@@ -57,7 +57,7 @@ class DataProvider extends GetxController {
         () => Cart(
           id: product.id,
           product: product,
-          productPrice: product.oPrice,
+          productPrice: product.dPrice,
           quantity: 1,
         ),
       );
