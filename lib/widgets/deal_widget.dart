@@ -70,7 +70,20 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: IconButton(
-                    onPressed: () => controller.increaseCart(product),
+                    onPressed: () {
+                      final snackBar = SnackBar(
+                        content: const Text('add to the cart'),
+                        action: SnackBarAction(
+                          label: 'Undo',
+                          onPressed: () {
+                            controller.decreaseCart(product.id);
+                          },
+                        ),
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      controller.increaseCart(product);
+                    },
                     icon: const Icon(
                       Icons.shopping_cart_outlined,
                       color: Colors.redAccent,

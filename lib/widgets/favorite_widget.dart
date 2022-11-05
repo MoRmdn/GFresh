@@ -62,50 +62,52 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
           const SizedBox(
             width: 10,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                product.title,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Text(
-                'Places${product.places}',
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.location_on_outlined),
-                  Text(
-                    product.address,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                ],
-              ),
-              RichText(
-                text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: ' \$ ${product.dPrice}   ',
-                      style: const TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: '\$${product.oPrice}',
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  product.title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                Text(
+                  'Places${product.places}',
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.location_on_outlined),
+                    Text(
+                      product.address,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 ),
-              ),
-            ],
+                RichText(
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: ' \$ ${product.dPrice}   ',
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '\$${product.oPrice}',
+                        style: const TextStyle(
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
