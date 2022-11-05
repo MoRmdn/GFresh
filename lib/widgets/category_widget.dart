@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
-import "package:gfresh/config/app_color.dart";
+import 'package:flutter/material.dart';
+import 'package:gfresh/config/app_color.dart';
 import 'package:gfresh/models/category.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -8,7 +8,6 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),

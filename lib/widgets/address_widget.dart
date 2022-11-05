@@ -13,11 +13,12 @@ class AddressWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          border: Border.all(
-            width: 1,
-            color: Colors.black12,
-          ),
-          borderRadius: BorderRadius.circular(10)),
+        border: Border.all(
+          width: 1,
+          color: Colors.black12,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
       width: size.width * 0.5,
       child: ListTile(
         leading: Container(

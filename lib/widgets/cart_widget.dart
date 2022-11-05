@@ -4,6 +4,7 @@ import 'package:gfresh/models/product.dart';
 
 import '../config/app_assets.dart';
 import '../config/app_color.dart';
+import '../config/app_string.dart';
 import '../providers/data_provider.dart';
 
 class CartItem extends StatefulWidget {
@@ -26,7 +27,7 @@ class CartItem extends StatefulWidget {
 }
 
 class _CartItemState extends State<CartItem> {
-  final controller = Get.find<DataProvider>(tag: 'main');
+  final controller = Get.find<DataProvider>(tag: AppStrings.mainController);
   @override
   Widget build(BuildContext context) {
     final cartKey = widget.cartItemKey;

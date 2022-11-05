@@ -13,7 +13,7 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
-  final controller = Get.find<DataProvider>(tag: 'main');
+  final controller = Get.find<DataProvider>(tag: AppStrings.mainController);
 
   void onRefresh() => setState(() {});
   @override
@@ -23,10 +23,43 @@ class _MyCartState extends State<MyCart> {
             child: Icon(Icons.shopping_cart),
           )
         : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                AppStrings.cartTitle,
+              const Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  AppStrings.cartTitle,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Total',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      '\$${controller.cartTotal()}',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Expanded(
                 child: ListView.builder(

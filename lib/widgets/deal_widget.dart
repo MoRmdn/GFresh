@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:gfresh/config/app_color.dart';
 import 'package:gfresh/models/product.dart';
 
+import '../config/app_string.dart';
 import '../providers/data_provider.dart';
 
 class DealsOfTheDay extends StatefulWidget {
@@ -17,11 +18,10 @@ class DealsOfTheDay extends StatefulWidget {
 }
 
 class _DealsOfTheDayState extends State<DealsOfTheDay> {
-  final controller = Get.find<DataProvider>(tag: 'main');
+  final controller = Get.find<DataProvider>(tag: AppStrings.mainController);
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
-    final size = MediaQuery.of(context).size;
     const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -93,7 +93,7 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Text(
-                "Places${product.places}",
+                'Places${product.places}',
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               Row(
@@ -110,9 +110,12 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
                 text: TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                        text: ' \$ ${product.dPrice}   ',
-                        style: const TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.bold)),
+                      text: ' \$ ${product.dPrice}   ',
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     TextSpan(
                       text: '\$${product.oPrice}',
                       style: const TextStyle(

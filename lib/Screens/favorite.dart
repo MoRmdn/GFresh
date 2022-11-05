@@ -14,7 +14,7 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  final controller = Get.find<DataProvider>(tag: "main");
+  final controller = Get.find<DataProvider>(tag: AppStrings.mainController);
   void onRefresh() => setState(() {});
   @override
   Widget build(BuildContext context) {
@@ -24,33 +24,31 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               AppAssets.heartIcon,
             ),
           )
-        : SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    AppStrings.favoriteTitle,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+        : Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  AppStrings.favoriteTitle,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: controller.favoriteProduct().length,
-                    itemBuilder: (context, index) => FavoriteWidget(
-                      product: controller.favoriteProduct()[index],
-                      onRefresh: onRefresh,
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: controller.favoriteProduct().length,
+                  itemBuilder: (context, index) => FavoriteWidget(
+                    product: controller.favoriteProduct()[index],
+                    onRefresh: onRefresh,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 }

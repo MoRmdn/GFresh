@@ -20,7 +20,6 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
-    final size = MediaQuery.of(context).size;
     const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -73,7 +72,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Text(
-                "Places${product.places}",
+                'Places${product.places}',
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               Row(
@@ -90,9 +89,12 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
                 text: TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                        text: ' \$ ${product.dPrice}   ',
-                        style: const TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.bold)),
+                      text: ' \$ ${product.dPrice}   ',
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     TextSpan(
                       text: '\$${product.oPrice}',
                       style: const TextStyle(

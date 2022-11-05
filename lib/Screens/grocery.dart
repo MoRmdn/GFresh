@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gfresh/helpers/helpers.dart';
+import 'package:gfresh/config/app_string.dart';
 import 'package:gfresh/widgets/category_widget.dart';
 
-import '../config/app_color.dart';
 import '../providers/data_provider.dart';
 import '../widgets/address_widget.dart';
 import '../widgets/deal_widget.dart';
@@ -16,11 +15,18 @@ class GroceryScreen extends StatefulWidget {
 }
 
 class _GroceryScreenState extends State<GroceryScreen> {
-  final controller = Get.find<DataProvider>(tag: 'main');
+  final controller = Get.find<DataProvider>(tag: AppStrings.mainController);
+  final TextEditingController searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    Color appColor = AppColor.kColorList.getRandomValue();
     return SingleChildScrollView(
       child: Obx(
         () {
@@ -43,11 +49,12 @@ class _GroceryScreenState extends State<GroceryScreen> {
                   color: const Color(0xffF5F7F9),
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
-                child: const TextField(
-                  decoration: InputDecoration(
+                child: TextField(
+                  controller: searchController,
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(Icons.search),
-                    hintText: 'Search in Thousands of Products',
+                    hintText: AppStrings.searchTitle,
                   ),
                 ),
               ),
@@ -77,7 +84,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Explore by Category',
+                          AppStrings.categoryTitle,
                           style: Theme.of(context).textTheme.headline6,
                         ),
                         TextButton(
@@ -85,7 +92,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                             setState(() {});
                           },
                           child: Text(
-                            'See All',
+                            AppStrings.seeAll,
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
@@ -206,7 +213,7 @@ class _GroceryScreenState extends State<GroceryScreen> {
                                     ),
                                   ),
                                   const Text(
-                                    '* Available until 24 December 2020',
+                                    AppStrings.orderValid,
                                     style: TextStyle(
                                       color: Colors.white,
                                     ),

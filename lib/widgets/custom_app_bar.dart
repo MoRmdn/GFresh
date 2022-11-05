@@ -15,13 +15,14 @@ PreferredSizeWidget? customAppBar() {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: const BoxDecoration(
-                color: Color(0xffEE6A61),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30),
-                  topLeft: Radius.circular(16),
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
-                )),
+              color: Color(0xffEE6A61),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(16),
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+            ),
             // padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -30,7 +31,7 @@ PreferredSizeWidget? customAppBar() {
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    "Location Data",
+                    'Location Data',
                     style: TextStyle(
                       fontSize: 15,
                     ),

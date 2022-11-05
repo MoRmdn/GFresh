@@ -5,7 +5,8 @@
 import 'dart:convert';
 
 List<AppCategory> catFromJson(String str) => List<AppCategory>.from(
-    json.decode(str).map((x) => AppCategory.fromJson(x)));
+      json.decode(str).map((x) => AppCategory.fromJson(x)),
+    );
 
 String catToJson(List<AppCategory> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
@@ -22,15 +23,15 @@ class AppCategory {
   final String imageUrl;
 
   factory AppCategory.fromJson(Map<String, dynamic> json) => AppCategory(
-        title: json["title"],
-        id: json["id"],
-        imageUrl: json["imageURL"],
+        title: json['title'],
+        id: json['id'],
+        imageUrl: json['imageURL'],
       );
 
   Map<String, dynamic> toJson() => {
-        "title": title,
-        "id": id,
-        "imageURL": imageUrl,
+        'title': title,
+        'id': id,
+        'imageURL': imageUrl,
       };
 
   @override
