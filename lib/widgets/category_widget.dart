@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:gfresh/config/app_color.dart";
-import "package:gfresh/helpers/helpers.dart";
 import 'package:gfresh/models/category.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -10,7 +9,7 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final appColor = AppColor.kColorList.getRandomValue();
+    const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: Column(
@@ -21,7 +20,7 @@ class CategoryWidget extends StatelessWidget {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              color: appColor,
+              color: appColor[int.parse(category.id)],
               borderRadius: BorderRadius.circular(20),
             ),
           ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:gfresh/helpers/remote_services.dart';
+import 'package:gfresh/models/cart_item.dart';
 import 'package:gfresh/models/category.dart';
 import 'package:gfresh/models/product.dart';
 
@@ -12,6 +13,7 @@ class DataProvider extends GetxController {
   List<Product> _products = [];
   List<AppCategory> _categories = [];
   List<UserLocation> _userLocations = [];
+  final Map<String, CartItem> _cart = {};
 
   void fetchData() async {
     try {
@@ -36,6 +38,54 @@ class DataProvider extends GetxController {
     }
     isLoading(false);
     return favProduct;
+  }
+
+  void increaseCart(Product product) {
+    if (_cart.containsKey(product)) {
+      _cart.update(
+          product.id,
+          (existingItem) => CartItem(
+                id: existingItem.id,
+                product: existingItem.product,
+                productPrice: existingItem.productPrice,
+                quantity: existingItem.quantity + 1,
+              ));
+    } else {
+      _cart.putIfAbsent(
+          product.id,
+          () => CartItem(
+              id: product.id,
+              product: product,
+              productPrice: product.oPrice,
+              quantity: 1));
+    }
+  }
+
+  void decreaseCart(CartItem cart) {
+    if (cart.quantity == 1) {
+      _cart.remove(cart.id);
+    } else {
+      _cart.update(
+          cart.id,
+          (existingItem) => CartItem(
+                id: existingItem.id,
+                product: existingItem.product,
+                productPrice: existingItem.productPrice,
+                quantity: existingItem.quantity - 1,
+              ));
+    }
+  }
+
+  void removeFormCart(CartItem cart) {
+    _cart.remove(cart.id);
+  }
+
+  double cartTotal() {
+    double sum = 0;
+    _cart.forEach((key, value) {
+      sum += (value.quantity * value.productPrice);
+    });
+    return sum;
   }
 
   @override

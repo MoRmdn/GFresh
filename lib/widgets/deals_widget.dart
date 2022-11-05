@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gfresh/config/app_color.dart';
-import 'package:gfresh/helpers/helpers.dart';
 import 'package:gfresh/models/product.dart';
 
 class DealsOfTheDay extends StatefulWidget {
@@ -19,7 +18,7 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
   Widget build(BuildContext context) {
     final product = widget.product;
     final size = MediaQuery.of(context).size;
-    final appColor = AppColor.kColorList.getRandomValue();
+    const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
@@ -33,7 +32,7 @@ class _DealsOfTheDayState extends State<DealsOfTheDay> {
               Container(
                 width: 110,
                 decoration: BoxDecoration(
-                  color: appColor,
+                  color: appColor[int.parse(product.id) + 6],
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),

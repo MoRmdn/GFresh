@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gfresh/config/app_string.dart';
 
 import 'Screens/home_page.dart';
 import 'helpers/bindings.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'GFresh',
+      title: AppStrings.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),

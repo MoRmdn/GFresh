@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gfresh/helpers/helpers.dart';
 import 'package:gfresh/models/product.dart';
 
 import '../config/app_color.dart';
@@ -22,7 +21,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   Widget build(BuildContext context) {
     final product = widget.product;
     final size = MediaQuery.of(context).size;
-    final appColor = AppColor.kColorList.getRandomValue();
+    const appColor = AppColor.kColorList;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
@@ -33,7 +32,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                  color: appColor,
+                  color: appColor[int.parse(product.id) + 6],
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
